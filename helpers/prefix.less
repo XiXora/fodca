@@ -1,0 +1,31 @@
+// prefix
+@import "for";
+
+.prefix(@prop; @values; @vendorPrefixes) {
+	.for(@vendorPrefixes); .-each(@prefix) {
+
+		.return(@x) when (@prefix = webkit) {
+			@prefixedProp: e("-webkit-@{prop}");
+		}
+
+		.return(@x) when (@prefix = moz) {
+			@prefixedProp: e("-moz-@{prop}");
+		}
+
+		.return(@x) when (@prefix = ms) {
+			@prefixedProp: e("-ms-@{prop}");
+		}
+
+		.return(@x) when (@prefix = o) {
+			@prefixedProp: e("-o-@{prop}");
+		}
+
+		.return(@x) when (@prefix = spec) {
+			@prefixedProp: @prop;
+		}
+
+		.return(@prefix);
+
+		@{prefixedProp}: @values;
+	}
+}
