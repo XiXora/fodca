@@ -1,0 +1,43 @@
+// animation: http://www.w3.org/TR/css3-animations/
+@import "../helpers/prefix";
+
+.animation (@animations; ...) {
+	.prefix(animation; @animations; webkit, moz, spec);
+}
+
+.animation-name (@names; ...) {
+	.prefix(animation-name; @names; webkit, moz, spec);
+}
+
+.animation-duration (@times; ...) {
+	.prefix(animation-duration; @times; webkit, moz, spec);
+}
+
+.animation-timing-function (@motions; ...) {
+	// ease | linear | ease-in | ease-out | ease-in-out
+	.prefix(animation-timing-function; @motions; webkit, moz, spec);
+}
+
+.animation-iteration-count (@values; ...) {
+	// infinite | <number>
+	.prefix(animation-iteration-count; @values; webkit, moz, spec);
+}
+
+.animation-direction (@directions; ...) {
+	// normal | alternate
+	.prefix(animation-direction; @directions; webkit, moz, spec);
+}
+
+.animation-play-state (@states; ...) {
+	// running | paused
+	.prefix(animation-play-state; @states; webkit, moz, spec);
+}
+
+.animation-delay (@times; ...) {
+	.prefix(animation-delay; @times; webkit, moz, spec);
+}
+
+.animation-fill-mode (@modes; ...) {
+	// none | forwards | backwards | both
+	.prefix(animation-fill-mode; @modes; webkit, moz, spec);
+}
