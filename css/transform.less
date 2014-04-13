@@ -1,0 +1,30 @@
+// transform: http://www.w3.org/TR/css-transforms-1/
+
+.transform (@functions; ...) {
+	// none | <transform-function>
+	.prefix(transform; @functions; webkit, moz, o, spec)
+}
+
+.transform-origin (@axes: 50%) {
+	// x-axis - left | center | right  | length | %
+	// y-axis - top  | center | bottom | length | %
+	// z-axis -                          length
+	.prefix(transform-origin; @axes; webkit, moz, ms, o, spec);
+}
+
+.transform-style (@style: flat) {
+	.prefix(transform-style; @style; webkit, moz, ms, o, spec);
+}
+
+.perspective(@depth: none) {
+	// none | <length>
+	.prefix(perspective; @depth; webkit, moz, spec);
+}
+
+.perspective-origin (@value: 50% 50%) {
+	.prefix(perspective-origin; @value; webkit, moz, spec);
+}
+
+.backface-visibility (@visibility) {
+	.prefix(backface-visibility; @visibility; webkit, spec);
+}
