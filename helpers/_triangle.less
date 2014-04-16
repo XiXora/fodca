@@ -1,0 +1,38 @@
+// triangle
+
+.triangle(@size; @color; @direction) {
+	height: 0;
+ 	width: 0;
+
+	@width: extract(@size, 1);
+	@height: extract(@size, length(@size));
+
+	@foreground-color: extract(@color, 1);
+	@background-color: @foreground-color; // if(length(@color) == 2, nth(@color, 2), transparent);
+	
+	.return() when(@direction = up) {
+      border-left: @width solid @background-color;
+      border-right: @width solid @background-color;
+      border-bottom: @height solid @foreground-color;
+  }
+
+    .return() when(@direction = right) {
+      border-top: @width solid @background-color;
+      border-bottom: @width solid @background-color;
+      border-left: @height solid @foreground-color;
+  }
+
+    .return() when(@direction = down) {
+      border-left: @width solid @background-color;
+      border-right: @width solid @background-color;
+      border-top: @height solid @foreground-color;
+  }
+
+    .return() when(@direction = left) {
+      border-top: @width solid @background-color;
+      border-bottom: @width solid @background-color;
+      border-right: @height solid @foreground-color;
+	}
+
+	.return;
+}
