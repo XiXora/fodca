@@ -1,11 +1,11 @@
 // triangle
 
 .triangle(@size; @color; @direction) {
-	height: 0;
  	width: 0;
+	height: 0;
 
-	@width: extract(@size, 1);
-	@height: extract(@size, length(@size));
+	//@width: extract(@size, 1);
+	//@height: extract(@size, length(@size));
 
 	@foreground-color: extract(@color, 1);
 
@@ -17,36 +17,51 @@
 		@background-color: transparent;
 	}
 
-	
-	& when (@direction = up) {
-		.background-color;
+	& when (@direction = up), (@direction = right), (@direction = down), (@direction = left) {
+		@width: (extract(@size, 1) / 2);
 
-		border-left: @width solid @background-color;
-		border-right: @width solid @background-color;
-		border-bottom: @height solid @foreground-color;
-	}
+		.height when (length(@size) > 1) {
+			@height: extract(@size, length(@size));
+		}
 
-    & when (@direction = right) {
-		.background-color;
+		.height when (length(@size) <= 1) {
+			@height: (extract(@size, length(@size)) / 2);
+		}
 
-		border-top: @width solid @background-color;
-		border-bottom: @width solid @background-color;
-		border-left: @height solid @foreground-color;
-	}
+		& when (@direction = up) {
+			.background-color;
+			.height;
 
-    & when (@direction = down) {
-		.background-color;
+			border-left: @width solid @background-color;
+			border-right: @width solid @background-color;
+			border-bottom: @height solid @foreground-color;
+		}
 
-		border-left: @width solid @background-color;
-		border-right: @width solid @background-color;
-		border-top: @height solid @foreground-color;
-	}
+	    & when (@direction = right) {
+			.background-color;
+			.height;
 
-    & when (@direction = left) {
-		.background-color;
-		
-		border-top: @width solid @background-color;
-		border-bottom: @width solid @background-color;
-		border-right: @height solid @foreground-color;
+			border-top: @width solid @background-color;
+			border-bottom: @width solid @background-color;
+			border-left: @height solid @foreground-color;
+		}
+
+	    & when (@direction = down) {
+			.background-color;
+			.height;
+
+			border-left: @width solid @background-color;
+			border-right: @width solid @background-color;
+			border-top: @height solid @foreground-color;
+		}
+
+	    & when (@direction = left) {
+			.background-color;
+			.height;
+
+			border-top: @width solid @background-color;
+			border-bottom: @width solid @background-color;
+			border-right: @height solid @foreground-color;
+		}
 	}
 }
