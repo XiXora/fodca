@@ -3,29 +3,24 @@
 
 .prefix(@prop; @values; @vendorPrefixes) {
 	.for(@vendorPrefixes); .-each(@prefix) {
-
-		.return(@x) when (@prefix = webkit) {
-			@prefixedProp: e("-webkit-@{prop}");
+		& when (@prefix = webkit) {
+			-webkit-@{prop}: @values;
 		}
 
-		.return(@x) when (@prefix = moz) {
-			@prefixedProp: e("-moz-@{prop}");
+		& when (@prefix = moz) {
+			-moz-@{prop}: @values;
 		}
 
-		.return(@x) when (@prefix = ms) {
-			@prefixedProp: e("-ms-@{prop}");
+		& when (@prefix = ms) {
+			-ms-@{prop}: @values;
 		}
 
-		.return(@x) when (@prefix = o) {
-			@prefixedProp: e("-o-@{prop}");
+		& when (@prefix = o) {
+			-o-@{prop}: @values;
 		}
 
-		.return(@x) when (@prefix = spec) {
-			@prefixedProp: @prop;
+		& when (@prefix = spec) {
+			@{prop}: @values;
 		}
-
-		.return(@prefix);
-
-		@{prefixedProp}: @values;
 	}
 }

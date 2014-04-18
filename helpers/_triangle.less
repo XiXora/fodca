@@ -8,31 +8,45 @@
 	@height: extract(@size, length(@size));
 
 	@foreground-color: extract(@color, 1);
-	@background-color: @foreground-color; // if(length(@color) == 2, nth(@color, 2), transparent);
-	
-	.return() when(@direction = up) {
-      border-left: @width solid @background-color;
-      border-right: @width solid @background-color;
-      border-bottom: @height solid @foreground-color;
-  }
 
-    .return() when(@direction = right) {
-      border-top: @width solid @background-color;
-      border-bottom: @width solid @background-color;
-      border-left: @height solid @foreground-color;
-  }
-
-    .return() when(@direction = down) {
-      border-left: @width solid @background-color;
-      border-right: @width solid @background-color;
-      border-top: @height solid @foreground-color;
-  }
-
-    .return() when(@direction = left) {
-      border-top: @width solid @background-color;
-      border-bottom: @width solid @background-color;
-      border-right: @height solid @foreground-color;
+	.background-color when (length(@color) = 2) {
+		@background-color: extract(@color, 2);
 	}
 
-	.return;
+	.background-color when not (length(@color) = 2) {
+		@background-color: transparent;
+	}
+
+	
+	& when (@direction = up) {
+		.background-color;
+
+		border-left: @width solid @background-color;
+		border-right: @width solid @background-color;
+		border-bottom: @height solid @foreground-color;
+	}
+
+    & when (@direction = right) {
+		.background-color;
+
+		border-top: @width solid @background-color;
+		border-bottom: @width solid @background-color;
+		border-left: @height solid @foreground-color;
+	}
+
+    & when (@direction = down) {
+		.background-color;
+
+		border-left: @width solid @background-color;
+		border-right: @width solid @background-color;
+		border-top: @height solid @foreground-color;
+	}
+
+    & when (@direction = left) {
+		.background-color;
+		
+		border-top: @width solid @background-color;
+		border-bottom: @width solid @background-color;
+		border-right: @height solid @foreground-color;
+	}
 }
