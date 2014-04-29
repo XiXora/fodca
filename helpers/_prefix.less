@@ -3,20 +3,8 @@
 
 .prefix(@prop; @values; @vendorPrefixes) {
 	.for(@vendorPrefixes); .-each(@prefix) {
-		& when (@prefix = webkit) {
-			-webkit-@{prop}: @values;
-		}
-
-		& when (@prefix = moz) {
-			-moz-@{prop}: @values;
-		}
-
-		& when (@prefix = ms) {
-			-ms-@{prop}: @values;
-		}
-
-		& when (@prefix = o) {
-			-o-@{prop}: @values;
+		& when not (@prefix = spec) {
+			-@{prefix}-@{prop}: @values;
 		}
 
 		& when (@prefix = spec) {
