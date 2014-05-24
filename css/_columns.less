@@ -1,0 +1,49 @@
+// columns: http://www.w3.org/TR/css3-multicol/
+
+.columns(@arg: auto) {
+// <column-count> || <column-width>
+  .prefix(columns; @arg; webkit moz spec);
+}
+
+.column-count(@int: auto) {
+// auto || integer
+  .prefix(column-count; @int; webkit moz spec);
+}
+
+.column-gap(@length: normal) {
+// normal || length
+  .prefix(column-gap; @length; webkit moz spec);
+}
+
+.column-fill(@arg: auto) {
+// auto || length
+  .prefix(column-fill; @arg; webkit moz spec);
+}
+
+.column-rule(@arg) {
+	// <border-width> || <border-style> || <color>
+	.prefix(column-rule; @arg; webkit moz spec);
+}
+
+.column-rule-color(@color) {
+	.prefix(column-rule-color; @color; webkit moz spec);
+}
+
+.column-rule-style(@style: none) {
+	// none | hidden | dashed | dotted | double | groove | inset | inset | outset | ridge | solid
+	.prefix(column-rule-style; @style; webkit moz spec);
+}
+
+.column-rule-width (@width: none) {
+	.prefix(column-rule-width; @width; webkit moz spec);
+}
+
+.column-span(@arg: none) {
+	// none || all
+	.prefix(column-span; @arg; webkit moz spec);
+}
+
+.column-width(@length: auto) {
+	// auto || length
+	.prefix(column-width; @length; webkit moz spec);
+}
